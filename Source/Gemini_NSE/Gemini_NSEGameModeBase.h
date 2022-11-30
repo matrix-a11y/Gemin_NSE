@@ -13,5 +13,7 @@ UCLASS()
 class GEMINI_NSE_API AGemini_NSEGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
+public:
+	AGemini_NSEGameModeBase();
 	
 };

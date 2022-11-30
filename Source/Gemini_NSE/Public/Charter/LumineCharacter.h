@@ -36,6 +36,9 @@ public:
 	//镜头
 	UPROPERTY(EditInstanceOnly,Category="Basic Config");
 	UCameraComponent* CameraComponent;
+	//是否移动
+	UPROPERTY(EditInstanceOnly,Category="Basic Config");
+	bool IsMove = false;
 
 	void ThirdPerson();
 private:
