@@ -10,6 +10,7 @@
 #include "Charter/LumineCharacter.h"
 
 #include "Components/CapsuleComponent.h"
+#include "GameFramework/CharacterMovementComponent.h"
 
 // Sets default values
 ALumineCharacter::ALumineCharacter()
@@ -18,7 +19,8 @@ ALumineCharacter::ALumineCharacter()
 	PrimaryActorTick.bCanEverTick = true;
 	this -> Construct();
 	this -> CreateModel();
-
+	this -> ThirdPerson();
+	AutoPossessPlayer = EAutoReceiveInput::Player0;
 }
 void ALumineCharacter::Construct()
 {
@@ -54,7 +56,21 @@ void ALumineCharacter::Tick(float DeltaTime)
 void ALumineCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
-	PlayerInputComponent -> BindAxis("LookRight", &ALumineCharacter::)
-
+	PlayerInputComponent -> BindAxis("LookRight", this,&ALumineCharacter::AddControllerYawInput);
+	PlayerInputComponent -> BindAxis("LookFWD", this,&ALumineCharacter::AddControllerPitchInput);
+}
+void ALumineCharacter::ThirdPerson()
+{
+	bUseControllerRotationPitch = false;
+	bUseControllerRotationRoll = false;
+	bUseControllerRotationYaw = false;
+	GetCharacterMovement() -> RotationRate =FRotator(0,540,0);
+	SpringArmComponent -> SetupAttachment(RootComponent);
+	SpringArmComponent -> SetRelativeLocation(FVector(0,0,100));
+	SpringArmComponent -> SetRelativeRotation(FRotator(-15,0,0));
+	SpringArmComponent -> bUsePawnControlRotation = true;
+	CameraComponent -> SetupAttachment(SpringArmComponent);
+	CameraComponent -> SetRelativeLocation(FVector::ZeroVector);
+	CameraComponent -> bUsePawnControlRotation = false;
 }
 
