@@ -57,6 +57,8 @@ void ALumineCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 	PlayerInputComponent -> BindAxis("LookRight", this,&ALumineCharacter::AddControllerYawInput);
 	PlayerInputComponent -> BindAxis("LookFWD", this,&ALumineCharacter::AddControllerPitchInput);
+
+	
 }
 void ALumineCharacter::ThirdPerson()
 {

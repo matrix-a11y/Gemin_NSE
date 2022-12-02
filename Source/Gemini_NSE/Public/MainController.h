@@ -32,17 +32,20 @@ public:
 	float FowardValue;
 	UPROPERTY(EditInstanceOnly,Category="Basic Config");
 	float RotaValue;
+
 private:
 	void Construct();
 	void MoveFoward_BackWard(float Value);
 	void MoveLeft_Right(float Value);
+	void Jump();
+	void StopJump();
 	void PerssOne();
 	void MouseTackPadLeft();
 	void MouseTackPadRight();
 	void MouseTackPadUP();
 	void MouseTackPadDown();
-	void Jump();
-	void StopJump();
+
+
 	
 	
 	

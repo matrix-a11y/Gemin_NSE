@@ -29,7 +29,7 @@ void AMainController::SetupInputComponent()
 	InputComponent -> BindAxis("MoveForward_BackWard", this, &AMainController::MoveFoward_BackWard);
 	InputComponent -> BindAxis("MoveLeft_Right",this,&AMainController::MoveLeft_Right);
 //	InputComponent -> BindAction("Jump",IE_Pressed,this ,AMainController::Jump);
-//	InputComponent -> BindAction("Jump",IE_Released,this,&AMainController::StopJump);
+//	InputComponent -> BindAction("StopJump",IE_Released,this,&AMainController::StopJump);
 //	InputComponent -> BindAction("One",IE_Pressed,this,AMainController::PerssOne);
 //	InputComponent -> BindAction("Mouse/TackPadLeft",IE_Pressed,this,&AMainController::MouseTackPadLeft);
 //	InputComponent -> BindAction("Mouse/TackPadRight",IE_Pressed,this,&AMainController::MouseTackPadRight);
@@ -84,6 +84,17 @@ void AMainController::MoveLeft_Right(float Value)
 		
 
 }
+void AMainController::Jump()
+{
+	Main -> Jump();
+}
+void AMainController::StopJump()
+{
+	Main -> StopJumping();
+}
+
+
+
 
 
 
