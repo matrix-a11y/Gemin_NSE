@@ -39,6 +39,18 @@ public:
 	//是否移动
 	UPROPERTY(EditInstanceOnly,Category="Basic Config");
 	bool IsMove = false;
+	//启用动画
+	UPROPERTY(EditInstanceOnly,Category="Basic Config");
+	UAnimSequence* AnimSequence;
+	//待机
+	FString Idle = TEXT("AnimSequence'/Game/Charters/Lumine/Animatation/Lumine_Idle.Lumine_Idle'");
+	//跑步
+	FString Run = TEXT("AnimSequence'/Game/Charters/Lumine/Animatation/Lumine_Run_Fwd.Lumine_Run_Fwd'");
+	//跳跃
+	FString Jump = TEXT("AnimSequence'/Game/Charters/Lumine/Animatation/Lumine_Run_Fwd.Lumine_Run_Fwd'");
+
+	void AnimPlay(FString Value,bool Loop = true);
+	FString GetPlayAnimName();
 
 	
 	void ThirdPerson();
