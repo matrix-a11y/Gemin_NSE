@@ -40,6 +40,7 @@ public:
 	UPROPERTY(EditInstanceOnly,Category="Basic Config");
 	bool IsMove = false;
 
+	
 	void ThirdPerson();
 private:
 	void Construct();
