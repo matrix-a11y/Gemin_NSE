@@ -86,7 +86,7 @@ void AMainController::MoveLeft_Right(float Value)
 }
 void AMainController::Jump()
 {
-	Main -> Jump();
+	Main -> Jump;
 }
 void AMainController::StopJump()
 {
